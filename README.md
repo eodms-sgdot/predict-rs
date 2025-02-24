@@ -89,8 +89,8 @@ fn main() {
  
 * Copyright 2013-2015 Knut Magnus Kvamtrø (LA3DPA)
 
-* Copyright (c) His Majesty the King in Right of Canada,
-  as represented by the Minister of Natural Resources, 2025
+* Copyright 2025 His Majesty the King in Right of Canada,
+  as represented by the Minister of Natural Resources
 
 Licensed under
 
