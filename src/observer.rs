@@ -469,11 +469,13 @@ pub fn get_passes(
 }
 
 #[cfg(test)]
+#[allow(clippy::unwrap_used)]
 mod tests {
     use crate::observer::{get_passes, DEG_TO_RAD};
     use crate::predict::{ObserverElements, PredictObserver};
 
     // https://github.com/neuromorphicsystems/sgp4/blob/master/src/tle.rs
+    #[allow(clippy::float_cmp)]
     fn assert_eq_f64(first: f64, second: f64) {
         if second == 0.0 {
             assert_eq!(first, 0.0);
@@ -503,6 +505,7 @@ mod tests {
             constants: &constants,
             observer: &observer,
         };
+        #[allow(clippy::cast_precision_loss)]
         let start_epoch = elements.datetime.and_utc().timestamp() as f64;
         let mut passes = get_passes(&oe, start_epoch, start_epoch + 3.0 * 3600.0)
             .unwrap()
@@ -510,11 +513,11 @@ mod tests {
 
         let second = passes.pop().unwrap();
         let first = passes.pop().unwrap();
-        assert_eq_f64(first.aos.as_ref().unwrap().time, 1739587541.8176503);
-        assert_eq_f64(first.los.as_ref().unwrap().time, 1739588409.2076945);
-        assert_eq_f64(second.aos.as_ref().unwrap().time, 1739593848.2176938);
-        assert_eq_f64(second.los.as_ref().unwrap().time, 1739594238.8966446);
-        assert_eq_f64(first.aos.as_ref().unwrap().revolutions, 89645.81847641163);
-        assert_eq_f64(second.aos.as_ref().unwrap().revolutions, 89646.86213418638);
+        assert_eq_f64(first.aos.as_ref().unwrap().time, 1_739_587_541.817_650_3);
+        assert_eq_f64(first.los.as_ref().unwrap().time, 1_739_588_409.207_694_5);
+        assert_eq_f64(second.aos.as_ref().unwrap().time, 1_739_593_848.217_693_8);
+        assert_eq_f64(second.los.as_ref().unwrap().time, 1_739_594_238.896_644_6);
+        assert_eq_f64(first.aos.as_ref().unwrap().revolutions, 89_645.818_476_411_63);
+        assert_eq_f64(second.aos.as_ref().unwrap().revolutions, 89_646.862_134_186_38);
     }
 }
