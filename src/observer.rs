@@ -517,7 +517,13 @@ mod tests {
         assert_eq_f64(first.los.as_ref().unwrap().time, 1_739_588_409.207_694_5);
         assert_eq_f64(second.aos.as_ref().unwrap().time, 1_739_593_848.217_693_8);
         assert_eq_f64(second.los.as_ref().unwrap().time, 1_739_594_238.896_644_6);
-        assert_eq_f64(first.aos.as_ref().unwrap().revolutions, 89_645.818_476_411_63);
-        assert_eq_f64(second.aos.as_ref().unwrap().revolutions, 89_646.862_134_186_38);
+        assert_eq_f64(
+            first.aos.as_ref().unwrap().revolutions,
+            89_645.818_476_411_63,
+        );
+        assert_eq_f64(
+            second.aos.as_ref().unwrap().revolutions,
+            89_646.862_134_186_38,
+        );
     }
 }
