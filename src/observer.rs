@@ -434,7 +434,7 @@ pub fn get_passes(
             currtime += 1.0;
         }
         if pass.aos.is_none() {
-            println!("Shouldn't be here");
+            return Err(OrbitPredictionError::MissingAOS);
         }
         // now find LOS
         loop {
