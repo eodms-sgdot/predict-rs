@@ -21,6 +21,7 @@ use crate::sun::sun_predict;
 #[non_exhaustive]
 #[derive(Debug)]
 pub enum OrbitPredictionError {
+    MissingAOS,
     Propagation(sgp4::Error),
 }
 
